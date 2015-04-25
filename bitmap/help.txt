@@ -1,0 +1,45 @@
+C:\JAGDEV\JAGUAR\BIN\TGA2CRY.EXE Version 1.14
+
+Usage: C:\JAGDEV\JAGUAR\BIN\TGA2CRY.EXE {options} [-resize w,h][-crop x,y,w,h][-f outformat][-filter outfilter][-o outfile] file.tga
+Valid options are:
+	-aspect       Preserve aspect ratio when resizing, by adding a black border
+	-binary       Output raw binary instead of assembly language
+	-dither       Dither CRY output for better conversion from RGB
+	-header       Add texture map header
+	-hflip        Flip picture horizontally
+	-nozero       Only output a 0x0000 color if input red=green=blue=0
+	-quiet        Quiet mode, print only FATAL ERROR messages to screen.
+	-noblitwarn   Disable FATAL ERROR on non-blitable widths.
+	-rotate       Rotate picture 90 degrees clockwise
+	-vflip        Flip picture veritcally
+	-crop x,y,w,h Use a subset of the input: (x,y) is the upper left corner, (w,h) the width & height
+	-resize w,h   Resize output to w pixels wide and h hide
+Valid output formats are:
+	cry           16 bit CRY (default)
+	cry8          8 bits/pixel with CRY palette appended
+	cry4		4 bits/pixel with CRY palette appended
+	cry1		1 bit/pixel with CRY palette appended
+	gray          16 bit CRY intensities only
+	glass         16 bit CRY intensities relative to 0x80
+	msk           1 bit mask for black/non-black
+	imsk	        Inverse 1-bit mask for black/non-black
+	rgb           16 bit RGB
+	rgb8          8 bits/pixel with RGB palette appended
+	rgb4		4 bits/pixel with RGB palette appended
+	rgb1		1 bit/pixel with RGB palette appended
+	rgb24         24 bit (Jaguar) RGB
+Valid filters for resizing are:
+	bell          Bell filter
+	box           Box filter
+	lanc          Lanczos filter
+	mitch         Mitchell filter (default)
+	sinc          Sin(x)/x (support 4)
+	tri           Triangle filter
+Options for cry format:
+	-stripbits n  Strip the lower n bits of a CRY picture
+Options for cry8, rgb8, cry4, and rgb4 formats:
+	-maxcolors n  Use at most n colors in the palette
+	-basecolor n  Add n to every pixel value
+Options for gray and glass formats:
+	-glimit n     Make any intensity < n black (n is from 0 to 254)
+	-gcolor n     Set the CRY color byte to n, rather than 0
